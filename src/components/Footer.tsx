@@ -7,9 +7,9 @@ const Footer = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-2xl font-bold text-secondary mb-4">CineSpace</h3>
+            <h3 className="text-2xl font-bold text-secondary mb-4">VOX Cinemas and Interiors</h3>
             <p className="text-primary-foreground/80 mb-4">
-              Transforming spaces into extraordinary experiences with premium home cinema and interior solutions.
+              Elevating living spaces with expert home cinema installations, sophisticated interior design, and smart automation solutions.
             </p>
           </div>
 
@@ -49,18 +49,18 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Our Services</h4>
             <ul className="space-y-2 text-primary-foreground/80">
-              <li className="hover:text-secondary transition-smooth cursor-pointer">Home Cinema</li>
-              <li className="hover:text-secondary transition-smooth cursor-pointer">Interior Works</li>
-              <li className="hover:text-secondary transition-smooth cursor-pointer">Home Theater</li>
-              <li className="hover:text-secondary transition-smooth cursor-pointer">Custom Design</li>
-              <li className="hover:text-secondary transition-smooth cursor-pointer">Consultations</li>
+              <li className="hover:text-secondary transition-smooth cursor-pointer">Residential Interiors</li>
+              <li className="hover:text-secondary transition-smooth cursor-pointer">Custom Furniture & Carpentry</li>
+              <li className="hover:text-secondary transition-smooth cursor-pointer">Ceiling Design</li>
+              <li className="hover:text-secondary transition-smooth cursor-pointer">Home Automation & Cinema</li>
+              <li className="hover:text-secondary transition-smooth cursor-pointer">Smart Home Solutions</li>
             </ul>
           </div>
         </div>
 
         {/* Copyright */}
         <div className="pt-8 border-t border-primary-foreground/20 text-center text-primary-foreground/60">
-          <p>© {new Date().getFullYear()} CineSpace. All rights reserved. Crafted with precision and passion.</p>
+          <p>© {new Date().getFullYear()} VOX Cinemas and Interiors. All rights reserved. Crafted with precision and passion.</p>
         </div>
       </div>
     </footer>

@@ -1,30 +1,38 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Film, Home, Speaker } from "lucide-react";
-import cinemaImage from "@/assets/service-cinema.jpg";
-import interiorImage from "@/assets/service-interior.jpg";
-import audioImage from "@/assets/service-audio.jpg";
+import { Home, Sofa, Layers, Settings } from "lucide-react";
+import residentialImage from "@/assets/service-residential.jpg";
+import furnitureImage from "@/assets/service-furniture.jpg";
+import ceilingImage from "@/assets/service-ceiling.jpg";
+import automationImage from "@/assets/service-automation.jpg";
 
 const services = [
   {
-    icon: Film,
-    title: "Home Cinema",
-    description: "State-of-the-art cinema rooms with 4K projection, immersive sound systems, and luxury seating designed for the ultimate viewing experience.",
-    image: cinemaImage,
-    features: ["4K/8K Projection", "Dolby Atmos Sound", "Custom Seating", "Acoustic Design"]
-  },
-  {
     icon: Home,
-    title: "Interior Works",
-    description: "Sophisticated interior design solutions that blend aesthetics with functionality, creating spaces that reflect your style and enhance your lifestyle.",
-    image: interiorImage,
-    features: ["Space Planning", "Custom Furniture", "Lighting Design", "Material Selection"]
+    title: "Residential Interiors",
+    description: "Complete interior design solutions for your home including living rooms, bedrooms, modular kitchens, and dining areas with expert space planning and material selection.",
+    image: residentialImage,
+    features: ["Living Room Design", "Modular Kitchens", "Bedroom Interiors", "Space Planning"]
   },
   {
-    icon: Speaker,
-    title: "Home Theater",
-    description: "Professional audio-visual installations featuring cutting-edge technology and premium components for an unparalleled entertainment experience.",
-    image: audioImage,
-    features: ["Premium Audio Systems", "Smart Automation", "Cable Management", "Calibration Services"]
+    icon: Sofa,
+    title: "Custom Furniture & Carpentry",
+    description: "Bespoke furniture solutions including wardrobes, TV units, beds, sofas, and dining sets crafted with precision and quality materials.",
+    image: furnitureImage,
+    features: ["Wardrobes & Storage", "TV Units & Panels", "Custom Furniture", "False Ceilings"]
+  },
+  {
+    icon: Layers,
+    title: "Ceiling Design",
+    description: "Sophisticated ceiling solutions including gypsum, grid, wooden, and acoustic ceilings that add elegance and functionality to your spaces.",
+    image: ceilingImage,
+    features: ["Gypsum Ceilings", "Grid Ceilings", "Wooden Ceilings", "Acoustic Solutions"]
+  },
+  {
+    icon: Settings,
+    title: "Home Automation & Cinema",
+    description: "Smart home integration with luxury home theater setups, acoustic paneling, projector systems, and AV installations for an immersive experience.",
+    image: automationImage,
+    features: ["Smart Home Systems", "Home Theater Setup", "AV Installation", "Acoustic Paneling"]
   }
 ];
 
@@ -43,7 +51,7 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <Card 
               key={service.title}

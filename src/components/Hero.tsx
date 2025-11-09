@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Phone, MessageCircle } from "lucide-react";
-import heroImage from "@/assets/hero-theater.jpg";
+import heroImage from "@/assets/hero-home-theater.jpg";
 
 const Hero = () => {
   const handleWhatsApp = () => {
@@ -25,12 +25,12 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-4xl mx-auto animate-fade-in">
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-primary-foreground mb-6 leading-tight">
-            Transform Your Space Into a
-            <span className="block text-secondary mt-2">Cinematic Experience</span>
+            Elevate Your Living Spaces
+            <span className="block text-secondary mt-2">With Cinematic Elegance</span>
           </h1>
           
           <p className="text-lg sm:text-xl lg:text-2xl text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-            Premium home cinema installations, interior design, and home theater solutions crafted with precision and passion
+            Expert home cinema installations, sophisticated interior design, and smart automation solutions
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-scale-in">
@@ -55,23 +55,6 @@ const Hero = () => {
             </Button>
           </div>
 
-          {/* Trust Indicators */}
-          <div className="mt-12 pt-12 border-t border-primary-foreground/20">
-            <div className="grid grid-cols-3 gap-6 max-w-2xl mx-auto">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-secondary">500+</div>
-                <div className="text-sm text-primary-foreground/80 mt-1">Projects Completed</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-secondary">15+</div>
-                <div className="text-sm text-primary-foreground/80 mt-1">Years Experience</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-secondary">100%</div>
-                <div className="text-sm text-primary-foreground/80 mt-1">Client Satisfaction</div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 

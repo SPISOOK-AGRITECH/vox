@@ -9,7 +9,7 @@ const values = [
   {
     icon: Shield,
     title: "Trusted Expertise",
-    description: "Over 15 years of experience delivering world-class installations with meticulous attention to every detail."
+    description: "Professional team delivering world-class installations with meticulous attention to every detail and commitment to excellence."
   },
   {
     icon: Sparkles,
@@ -61,25 +61,6 @@ const WhyChooseUs = () => {
           ))}
         </div>
 
-        {/* Stats Section */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-primary-foreground/20 pt-12">
-          <div className="text-center">
-            <div className="text-4xl font-bold text-secondary mb-2">500+</div>
-            <div className="text-primary-foreground/80">Happy Clients</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-secondary mb-2">850+</div>
-            <div className="text-primary-foreground/80">Projects Done</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-secondary mb-2">15+</div>
-            <div className="text-primary-foreground/80">Years Experience</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-secondary mb-2">100%</div>
-            <div className="text-primary-foreground/80">Satisfaction Rate</div>
-          </div>
-        </div>
       </div>
     </section>
   );
