@@ -12,15 +12,15 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-sm border-b border-border z-50">
+    <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md z-50 border-b border-border/50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-24">
           {/* Logo */}
           <div className="flex items-center">
             <img 
               src={logo} 
               alt="VOX Cinemas and Interiors" 
-              className="h-12 w-auto"
+              className="h-16 w-auto object-contain"
             />
           </div>
 
@@ -28,21 +28,22 @@ const Navbar = () => {
           <div className="flex items-center gap-3">
             <Button 
               variant="outline" 
-              size="sm"
+              size="default"
               onClick={handleCall}
-              className="hidden sm:flex"
+              className="hidden sm:flex items-center gap-2"
             >
               <Phone className="w-4 h-4" />
-              Call
+              <span>Call Us</span>
             </Button>
             
             <Button 
               variant="hero" 
-              size="sm"
+              size="default"
               onClick={handleWhatsApp}
+              className="flex items-center gap-2"
             >
               <MessageCircle className="w-4 h-4" />
-              WhatsApp
+              <span>WhatsApp</span>
             </Button>
           </div>
         </div>
