@@ -12,10 +12,6 @@ const CallToAction = () => {
     window.location.href = "tel:+916238476343";
   };
 
-  const handleEmail = () => {
-    window.location.href = "mailto:info@yourcompany.com";
-  };
-
   return (
     <section className="py-20 lg:py-32 relative" style={{ background: 'linear-gradient(135deg, hsl(0 0% 8% / 0.92) 0%, hsl(0 0% 5% / 0.95) 100%)' }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -26,7 +22,7 @@ const CallToAction = () => {
               Ready to Transform Your Space?
             </h2>
             <p className="text-lg sm:text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
-              Let's discuss your vision and create something extraordinary together. Get in touch today for a free consultation.
+              Let&apos;s discuss your vision and create something extraordinary together. Get in touch today for a free consultation.
             </p>
 
             {/* Contact Buttons */}
