@@ -1,5 +1,13 @@
+# Netlify configuration for Next.js
+# The plugin automatically handles the publish directory
+# If you get an error about publish directory, go to Netlify UI > Site settings > Build & deploy
+# and clear/remove the "Publish directory" field (leave it empty)
+
 [build]
   command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "20"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
