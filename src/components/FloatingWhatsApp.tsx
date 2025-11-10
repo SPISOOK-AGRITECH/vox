@@ -7,7 +7,7 @@ const FloatingWhatsApp = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleClick = () => {
-    window.open("https://wa.me/918943864943", "_blank");
+    window.open("https://wa.me/917356264943", "_blank");
   };
 
   return (

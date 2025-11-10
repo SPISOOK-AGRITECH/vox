@@ -5,11 +5,11 @@ import { MessageCircle, Phone, Mail } from "lucide-react";
 
 const CallToAction = () => {
   const handleWhatsApp = () => {
-    window.open("https://wa.me/918943864943", "_blank");
+    window.open("https://wa.me/917356264943", "_blank");
   };
 
   const handleCall = () => {
-    window.location.href = "tel:+918943864943";
+    window.location.href = "tel:+917356264943";
   };
 
   return (
@@ -51,11 +51,11 @@ const CallToAction = () => {
             {/* Contact Info */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-8 border-t border-gray-700/50">
               <a 
-                href="tel:+918943864943"
+                href="tel:+917356264943"
                 className="flex items-center gap-2 text-gray-200 hover:text-secondary transition-smooth"
               >
                 <Phone className="w-4 h-4" />
-                <span>+91 89438 64943</span>
+                <span>+917356264943</span>
               </a>
               <a 
                 href="mailto:voxcinemasinteriors@gmail.com"

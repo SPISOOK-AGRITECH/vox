@@ -22,7 +22,7 @@ export default function Home() {
         <Services />
         <WhyChooseUs />
         <CallToAction />
-        <Location />
+        {/* <Location /> */}
         <Footer />
       </div>
       <FloatingWhatsApp />
