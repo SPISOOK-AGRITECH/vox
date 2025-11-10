@@ -1,3 +1,5 @@
+'use client';
+
 import { MessageCircle } from "lucide-react";
 import { useState } from "react";
 
@@ -5,7 +7,7 @@ const FloatingWhatsApp = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleClick = () => {
-    window.open("https://wa.me/1234567890", "_blank");
+    window.open("https://wa.me/916238476343", "_blank");
   };
 
   return (

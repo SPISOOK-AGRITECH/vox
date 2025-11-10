@@ -25,14 +25,14 @@ const values = [
 
 const WhyChooseUs = () => {
   return (
-    <section className="py-20 lg:py-32 gradient-hero">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 lg:py-32 relative" style={{ background: 'linear-gradient(135deg, hsl(0 0% 8% / 0.92) 0%, hsl(0 0% 5% / 0.95) 100%)' }}>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
             Why Choose Us
           </h2>
-          <p className="text-lg text-primary-foreground/80">
+          <p className="text-lg text-gray-300">
             Experience the difference that passion, precision, and professionalism can make
           </p>
         </div>
@@ -51,10 +51,10 @@ const WhyChooseUs = () => {
               </div>
 
               {/* Content */}
-              <h3 className="text-xl font-bold text-primary-foreground mb-3">
+              <h3 className="text-xl font-bold text-white mb-3">
                 {value.title}
               </h3>
-              <p className="text-primary-foreground/80">
+              <p className="text-gray-300">
                 {value.description}
               </p>
             </div>

@@ -1,46 +1,55 @@
+'use client';
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Home, Sofa, Layers, Settings } from "lucide-react";
-import { useState } from "react";
-import residentialImage1 from "@/assets/service-residential.jpg";
-import residentialImage2 from "@/assets/service-residential-2.jpg";
-import residentialImage3 from "@/assets/service-residential-3.jpg";
-import furnitureImage1 from "@/assets/service-furniture.jpg";
-import furnitureImage2 from "@/assets/service-furniture-2.jpg";
-import furnitureImage3 from "@/assets/service-furniture-3.jpg";
-import ceilingImage1 from "@/assets/service-ceiling.jpg";
-import ceilingImage2 from "@/assets/service-ceiling-2.jpg";
-import ceilingImage3 from "@/assets/service-ceiling-3.jpg";
-import automationImage1 from "@/assets/service-automation.jpg";
-import automationImage2 from "@/assets/service-automation-2.jpg";
-import automationImage3 from "@/assets/service-automation-3.jpg";
+import { useState, useEffect } from "react";
 
 const services = [
   {
     icon: Home,
     title: "Residential Interiors",
     description: "Complete interior design solutions for your home including living rooms, bedrooms, modular kitchens, and dining areas with expert space planning and material selection.",
-    images: [residentialImage1, residentialImage2, residentialImage3],
+    images: [
+      "/assets/service-residential.jpg",
+      "/assets/service-residential-2.jpg",
+      "/assets/service-residential-3.jpg",
+    ],
     features: ["Living Room Design", "Modular Kitchens", "Bedroom Interiors", "Space Planning"]
   },
   {
     icon: Sofa,
     title: "Custom Furniture & Carpentry",
     description: "Bespoke furniture solutions including wardrobes, TV units, beds, sofas, and dining sets crafted with precision and quality materials.",
-    images: [furnitureImage1, furnitureImage2, furnitureImage3],
+    images: [
+      "/assets/service-furniture.jpg",
+      "/assets/service-furniture-2.jpg",
+      "/assets/service-furniture-3.jpg",
+    ],
     features: ["Wardrobes & Storage", "TV Units & Panels", "Custom Furniture", "False Ceilings"]
   },
   {
     icon: Layers,
     title: "Ceiling Design",
     description: "Sophisticated ceiling solutions including gypsum, grid, wooden, and acoustic ceilings that add elegance and functionality to your spaces.",
-    images: [ceilingImage1, ceilingImage2, ceilingImage3],
+    images: [
+      "/assets/service-ceiling.jpg",
+      "/assets/service-ceiling-2.jpg",
+      "/assets/service-ceiling-3.jpg",
+    ],
     features: ["Gypsum Ceilings", "Grid Ceilings", "Wooden Ceilings", "Acoustic Solutions"]
   },
   {
     icon: Settings,
     title: "Home Automation & Cinema",
     description: "Smart home integration with luxury home theater setups, acoustic paneling, projector systems, and AV installations for an immersive experience.",
-    images: [automationImage1, automationImage2, automationImage3],
+    images: [
+      "/assets/service-automation-1.jpg",
+      "/assets/service-automation-2.jpg",
+      "/assets/service-automation-3.jpg",
+      "/assets/service-automation-4.jpg",
+      "/assets/service-automation-5.jpg",
+      "/assets/service-automation-6.jpg",
+    ],
     features: ["Smart Home Systems", "Home Theater Setup", "AV Installation", "Acoustic Paneling"]
   }
 ];
@@ -52,11 +61,34 @@ interface ServiceCardProps {
 
 const ServiceCard = ({ service, index }: ServiceCardProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Auto-advance carousel every 3 seconds
+  useEffect(() => {
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        prevIndex === service.images.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 3000); // Change image every 3 seconds
+
+    return () => clearInterval(interval); // Cleanup on unmount
+  }, [service.images.length, isPaused]);
+
+  const handleDotClick = (dotIndex: number) => {
+    setCurrentImageIndex(dotIndex);
+    setIsPaused(true);
+    // Resume auto-play after 5 seconds of user interaction
+    setTimeout(() => setIsPaused(false), 5000);
+  };
 
   return (
     <Card 
-      className="overflow-hidden group hover:shadow-card transition-smooth cursor-pointer border-border/50 animate-fade-in"
+      className="overflow-hidden group hover:shadow-card transition-smooth cursor-pointer border-gray-800/50 bg-black/40 backdrop-blur-sm animate-fade-in"
       style={{ animationDelay: `${index * 0.1}s` }}
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
     >
       {/* Image Stack Container */}
       <div className="relative h-80 overflow-hidden">
@@ -78,7 +110,7 @@ const ServiceCard = ({ service, index }: ServiceCardProps) => {
                 alt={`${service.title} - Image ${imgIndex + 1}`}
                 className="w-full h-full object-cover group-hover:scale-110 transition-smooth"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-60" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
             </div>
           ))}
         </div>
@@ -93,7 +125,7 @@ const ServiceCard = ({ service, index }: ServiceCardProps) => {
           {service.images.map((_, dotIndex) => (
             <button
               key={dotIndex}
-              onClick={() => setCurrentImageIndex(dotIndex)}
+              onClick={() => handleDotClick(dotIndex)}
               className="group/dot relative"
               aria-label={`View image ${dotIndex + 1}`}
             >
@@ -101,7 +133,7 @@ const ServiceCard = ({ service, index }: ServiceCardProps) => {
                 className={`w-2 h-2 rounded-full transition-all duration-300 ${
                   dotIndex === currentImageIndex 
                     ? 'bg-secondary scale-125 shadow-glow' 
-                    : 'bg-primary-foreground/40 hover:bg-primary-foreground/60 group-hover/dot:scale-110'
+                    : 'bg-white/40 hover:bg-white/60 group-hover/dot:scale-110'
                 }`}
               />
             </button>
@@ -110,17 +142,17 @@ const ServiceCard = ({ service, index }: ServiceCardProps) => {
       </div>
 
       <CardContent className="p-6">
-        <h3 className="text-2xl font-bold text-foreground mb-3">
+        <h3 className="text-2xl font-bold text-white mb-3">
           {service.title}
         </h3>
-        <p className="text-muted-foreground mb-4">
+        <p className="text-gray-300 mb-4">
           {service.description}
         </p>
 
         {/* Features List */}
         <ul className="space-y-2">
           {service.features.map((feature) => (
-            <li key={feature} className="flex items-center text-sm text-muted-foreground">
+            <li key={feature} className="flex items-center text-sm text-gray-400">
               <div className="w-1.5 h-1.5 rounded-full bg-secondary mr-2" />
               {feature}
             </li>
@@ -133,14 +165,23 @@ const ServiceCard = ({ service, index }: ServiceCardProps) => {
 
 const Services = () => {
   return (
-    <section id="services" className="py-20 lg:py-32 bg-background">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="py-20 lg:py-32 relative overflow-visible" style={{ background: 'linear-gradient(135deg, hsl(0 0% 8% / 0.92) 0%, hsl(0 0% 5% / 0.95) 100%)' }}>
+      {/* Golden Light Overlay from Hero Section */}
+      <div 
+        className="absolute -top-32 left-0 right-0 h-48 pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse 100% 80% at center top, rgba(255, 215, 0, 0.12) 0%, rgba(255, 215, 0, 0.06) 30%, rgba(255, 215, 0, 0.02) 60%, transparent 100%)',
+          filter: 'blur(60px)',
+        }}
+      />
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 animate-fade-in">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
             Our Premium Services
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-lg text-gray-300">
             Delivering excellence in every project with meticulous attention to detail and uncompromising quality
           </p>
         </div>

@@ -1,14 +1,15 @@
-import logo from "@/assets/vox-logo.jpeg";
+'use client';
+
 import { Button } from "@/components/ui/button";
 import { Phone, MessageCircle } from "lucide-react";
 
 const Navbar = () => {
   const handleWhatsApp = () => {
-    window.open("https://wa.me/1234567890", "_blank");
+    window.open("https://wa.me/916238476343", "_blank");
   };
 
   const handleCall = () => {
-    window.location.href = "tel:+1234567890";
+    window.location.href = "tel:+916238476343";
   };
 
   return (
@@ -22,7 +23,7 @@ const Navbar = () => {
             <div className="relative group">
               <div className="absolute -inset-2 bg-secondary/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
               <img 
-                src={logo} 
+                src="/assets/voxnobg.png" 
                 alt="VOX Cinemas and Interiors - Premium Home Cinema & Interior Solutions" 
                 className="relative h-20 w-auto object-contain transition-transform group-hover:scale-105"
               />
