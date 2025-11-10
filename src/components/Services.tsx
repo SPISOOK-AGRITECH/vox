@@ -116,9 +116,9 @@ const ServiceCard = ({ service, index }: ServiceCardProps) => {
         </div>
         
         {/* Icon */}
-        <div className="absolute top-6 left-6 w-12 h-12 rounded-full bg-secondary flex items-center justify-center shadow-glow z-10">
+        {/* <div className="absolute top-6 left-6 w-12 h-12 rounded-full bg-secondary flex items-center justify-center shadow-glow z-10">
           <service.icon className="w-6 h-6 text-accent-foreground" />
-        </div>
+        </div> */}
 
         {/* Vertical Carousel Dots */}
         <div className="absolute right-6 top-1/2 -translate-y-1/2 flex flex-col gap-2 z-10">
