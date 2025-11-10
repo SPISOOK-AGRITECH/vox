@@ -50,11 +50,9 @@ const Location = () => {
                     </h3>
                   </div>
                   <p className="text-gray-300 text-lg leading-relaxed">
-                    Stellar Homes Studio
+                    VOX Cinemas and Interiors
                     <br />
-                    Calicut, Kerala, India
-                    <br />
-                    Pin: 673001
+                    Cochin and Wayanad
                   </p>
                 </div>
 

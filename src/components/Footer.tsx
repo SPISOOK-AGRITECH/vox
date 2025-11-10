@@ -17,17 +17,21 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4 text-white">Contact Us</h4>
             <div className="space-y-3 text-gray-300">
+              <a href="tel:+918943864943" className="flex items-center gap-2 hover:text-secondary transition-smooth">
+                <Phone className="w-4 h-4" />
+                <span>+91 8943864943</span>
+              </a>
               <a href="tel:+916238476343" className="flex items-center gap-2 hover:text-secondary transition-smooth">
                 <Phone className="w-4 h-4" />
-                <span>+91 6238 476 343</span>
+                <span>+91 6238476343</span>
               </a>
-              <a href="mailto:info@yourcompany.com" className="flex items-center gap-2 hover:text-secondary transition-smooth">
+              <a href="mailto:voxcinemasinteriors@gmail.com" className="flex items-center gap-2 hover:text-secondary transition-smooth">
                 <Mail className="w-4 h-4" />
-                <span>info@yourcompany.com</span>
+                <span>voxcinemasinteriors@gmail.com</span>
               </a>
               <div className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
-                <span>123 Cinema Street, Entertainment District, City, State 12345</span>
+                <span>Cochin | Wayanad</span>
               </div>
             </div>
           </div>

@@ -5,11 +5,11 @@ import { Phone, MessageCircle } from "lucide-react";
 
 const Navbar = () => {
   const handleWhatsApp = () => {
-    window.open("https://wa.me/916238476343", "_blank");
+    window.open("https://wa.me/918943864943", "_blank");
   };
 
   const handleCall = () => {
-    window.location.href = "tel:+916238476343";
+    window.location.href = "tel:+918943864943";
   };
 
   return (
