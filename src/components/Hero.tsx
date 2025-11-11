@@ -42,11 +42,26 @@ const Hero = () => {
     visibleLayerRef.current = visibleLayer;
   }, [visibleLayer]);
 
-  // Preload all images for smooth transitions
+  // Preload only the first two images (current and next) for faster initial load
   useEffect(() => {
-    heroImages.forEach((image) => {
-      const img = new Image();
-      img.src = image;
+    // Preload first image with high priority
+    const img1 = new Image();
+    img1.src = heroImages[0];
+    img1.fetchPriority = 'high';
+    
+    // Preload second image for smooth first transition
+    const img2 = new Image();
+    img2.src = heroImages[1];
+    
+    // Lazy load remaining images in background
+    const remainingImages = heroImages.slice(2);
+    remainingImages.forEach((image, index) => {
+      // Stagger loading to avoid blocking
+      setTimeout(() => {
+        const img = new Image();
+        img.src = image;
+        img.loading = 'lazy';
+      }, index * 200);
     });
   }, [heroImages]);
 
@@ -117,6 +132,7 @@ const Hero = () => {
             opacity: visibleLayer === 1 ? 1 : 0,
             zIndex: 1
           }}
+          aria-hidden={visibleLayer !== 1}
         />
         
         {/* Layer 2 - Fixed DOM element, never removed */}
@@ -128,6 +144,7 @@ const Hero = () => {
             opacity: visibleLayer === 2 ? 1 : 0,
             zIndex: 2
           }}
+          aria-hidden={visibleLayer !== 2}
         />
         
         {/* Gradient Overlay - Subtle transparent dark overlay for better image visibility */}
