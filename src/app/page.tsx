@@ -1,5 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import TechnologyMarquee from "@/components/TechnologyMarquee";
+import BrandMarquee from "@/components/BrandMarquee";
 import Services from "@/components/Services";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import CallToAction from "@/components/CallToAction";
@@ -20,8 +22,10 @@ export default function Home() {
         <Navbar />
         <Hero />
         <Services />
+        <TechnologyMarquee />
         <WhyChooseUs />
         <CallToAction />
+        <BrandMarquee />
         {/* <Location /> */}
         <Footer />
       </div>

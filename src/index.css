@@ -131,4 +131,30 @@ All colors MUST be HSL.
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  /* Technology marquee infinite scroll animation - chain loop effect */
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-25%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+
+  /* Faster animation for mobile devices */
+  @media (max-width: 768px) {
+    .animate-marquee {
+      animation: marquee 25s linear infinite;
+    }
+  }
 }
