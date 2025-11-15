@@ -132,7 +132,7 @@ All colors MUST be HSL.
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Technology marquee infinite scroll animation - chain loop effect */
+  /* Chain marquee infinite scroll animation - chain loop effect */
   @keyframes marquee {
     0% {
       transform: translateX(0);
@@ -142,8 +142,10 @@ All colors MUST be HSL.
     }
   }
 
-  .animate-marquee {
-    animation: marquee 30s linear infinite;
+  /* Brand marquee animation - adjusted for same perceived speed */
+  /* BrandMarquee has ~124 items (31 × 4), so needs longer duration */
+  .animate-marquee-brand {
+    animation: marquee 40s linear infinite;
     will-change: transform;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
@@ -151,10 +153,53 @@ All colors MUST be HSL.
     -webkit-transform: translate3d(0, 0, 0);
   }
 
+  /* Technology marquee animation - adjusted for same perceived speed */
+  /* TechnologyMarquee has ~36 items (9 × 4), so needs shorter duration */
+  .animate-marquee-technology {
+    animation: marquee 12s linear infinite;
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+
+  /* Legacy class for backward compatibility */
+ 
+
+  /* Gear wheel rotation animation - clockwise */
+  @keyframes gear-rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Gear wheel rotation animation - counter-clockwise */
+  @keyframes gear-rotate-reverse {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(-360deg);
+    }
+  }
+
+ 
+
   /* Faster animation for mobile devices */
   @media (max-width: 768px) {
     .animate-marquee {
       animation: marquee 25s linear infinite;
     }
+    .animate-marquee-brand {
+      animation: marquee 32s linear infinite;
+    }
+    .animate-marquee-technology {
+      animation: marquee 10s linear infinite;
+    }
+ 
   }
 }

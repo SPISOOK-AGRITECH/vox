@@ -2,16 +2,17 @@
 
 import { useEffect, useRef, useState } from 'react';
 
+
 /**
  * Technology Marquee Component
- * Displays technology logos (3D, 4K, iMax, 8K, Dolby Atmos, etc.) in an infinite scrolling marquee
- * Images are white with transparent backgrounds, perfect for dark theme
+ * Displays technology logos in a chain-link design with rotating gear wheels
+ * Images are connected like chain links and rotate around gear wheels
  */
 const TechnologyMarquee = () => {
   const marqueeRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
 
-  // Generate portfolio image paths (Portfolio-1 through Portfolio-16, excluding Portfolio-10)
+  // Generate portfolio image paths (Portfolio-1 through Portfolio-10)
   const portfolioImages = [
     '/portfolio/Portfolio-1.png',
     '/portfolio/Portfolio-2.png',
@@ -22,7 +23,6 @@ const TechnologyMarquee = () => {
     '/portfolio/Portfolio-7.png',
     '/portfolio/Portfolio-8.png',
     '/portfolio/Portfolio-9.png',
-    '/portfolio/Portfolio-10.png',
   ];
 
   // Duplicate images multiple times for seamless infinite scroll (like a chain loop)
@@ -54,7 +54,7 @@ const TechnologyMarquee = () => {
 
   return (
     <section 
-      className="py-2 sm:py-3 lg:py-4 relative overflow-hidden"
+      className="py-0 pt-4 relative overflow-hidden"
       style={{ 
         background: 'linear-gradient(135deg, hsl(0 0% 8% / 0.92) 0%, hsl(0 0% 5% / 0.95) 100%)',
         borderTop: '1px solid rgba(255, 215, 0, 0.1)',
@@ -70,55 +70,59 @@ const TechnologyMarquee = () => {
       />
 
       <div className="relative z-10">
-        {/* Optional Section Header - can be removed if not needed */}
-        <div className="text-center mb-6 sm:mb-8 animate-fade-in px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-3 sm:mb-4 animate-fade-in px-4 sm:px-6 lg:px-8">
           <p className="text-xs sm:text-sm uppercase tracking-wider text-secondary/80 font-semibold mb-2">
             Cutting Edge Cinema Technology
           </p>
         </div>
 
-        {/* Marquee Container */}
+        {/* Chain Container with Gear Wheels */}
         <div 
-          className="relative overflow-hidden w-full"
+          className="relative overflow-hidden w-full flex items-center"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          {/* Gradient Fades on edges for smooth blend - responsive width */}
-          <div 
-            className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 md:w-32 z-20 pointer-events-none"
-            style={{
-              background: 'linear-gradient(to right, hsl(0 0% 5% / 0.95), transparent)',
-            }}
-          />
-          <div 
-            className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 md:w-32 z-20 pointer-events-none"
-            style={{
-              background: 'linear-gradient(to left, hsl(0 0% 5% / 0.95), transparent)',
-            }}
-          />
+        
 
-          {/* Marquee Track */}
+          
+
+          {/* Chain Track - with padding for gears */}
           <div 
-            ref={marqueeRef}
-            className="flex gap-4 sm:gap-6 md:gap-8 lg:gap-12 items-center animate-marquee"
+            className="relative flex items-center w-full"
+            style={{ 
+              paddingLeft: '60px', 
+              paddingRight: '60px',
+            }}
           >
-            {duplicatedImages.map((image, index) => (
-              <div
-                key={`${image}-${index}`}
-                className="flex-shrink-0 flex items-center justify-center h-[40px] sm:h-[50px] md:h-[60px]"
-              >
-                <img
-                  src={image}
-                  alt={`Technology feature ${index + 1}`}
-                  className="h-full w-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 hover:scale-110"
-                  style={{
-                    willChange: 'transform',
-                  }}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-            ))}
+            {/* Chain Links */}
+            <div 
+              ref={marqueeRef}
+              className="flex gap-2 sm:gap-3 md:gap-4 items-center animate-marquee-technology"
+            >
+              {duplicatedImages.map((image, index) => (
+                <div
+                  key={`${image}-${index}`}
+                  className="flex items-center gap-2 sm:gap-3"
+                >
+                
+                  {/* Image Container */}
+                  <div className="flex-shrink-0 mx-4 w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-36 xl:h-36 flex items-center justify-center">
+                    <img
+                      src={image}
+                      alt={`Technology feature ${index + 1}`}
+                      className="max-w-full max-h-full w-auto h-auto object-contain opacity-70 hover:opacity-100 transition-all duration-300 hover:scale-110"
+                      style={{
+                        willChange: 'transform',
+                      }}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                 
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -127,4 +131,3 @@ const TechnologyMarquee = () => {
 };
 
 export default TechnologyMarquee;
-
